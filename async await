@@ -1,0 +1,65 @@
+✅ async/await kya hota hai?
+async/await JavaScript mein Promises ko handle karne ka modern aur easy way hai. Yeh asynchronous code ko likhne mein synchronous jaise feel deta hai — code readable aur clean ban jata hai.
+
+🔹 Syntax:
+javascript
+
+async function myFunction() {
+  let result = await someAsyncTask();
+  console.log(result);
+}
+async function hamesha ek Promise return karta hai.
+
+await kisi Promise ke result ka wait karta hai — bina next line pe jaaye.
+
+🔹 Basic Example:
+javascript
+
+function waitOneSecond() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve("1 second ho gaya");
+    }, 1000);
+  });
+}
+
+async function run() {
+  console.log("Start");
+  const msg = await waitOneSecond();
+  console.log(msg);
+  console.log("End");
+}
+
+run();
+🟢 Output:
+
+sql
+
+Start  
+1 second ho gaya  
+End
+✅ Error Handling with try...catch:
+javascript
+
+async function fetchData() {
+  try {
+    const res = await fetch("https://api.example.com/data");
+    const data = await res.json();
+    console.log(data);
+  } catch (err) {
+    console.error("Error aaya:", err.message);
+  }
+}
+🔹 Use Cases:
+API call (REST API / fetch)
+
+File operations in Node.js
+
+Database queries
+
+Delayed operations (setTimeout with Promises)
+
+🔁 Summary:
+Keyword	Use for
+async	Function ko promise-returning banana
+await	Promise ke result ka wait karna
