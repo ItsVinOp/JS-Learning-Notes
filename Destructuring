@@ -1,0 +1,39 @@
+🔹 Destructuring kya hota hai?
+Destructuring ka use hum array ya object ke values ko alag-alag variables mein todne (extract karne) ke liye karte hain — bina manually likhe.
+
+✅ Array Destructuring
+javascript
+
+const numbers = [10, 20, 30];
+const [a, b, c] = numbers;
+console.log(a); // 10
+Explanation:
+numbers ek array hai. Humne uske pehle 3 elements ko directly a, b, c mein le liya.
+
+👉 Agar beech ka value skip karna ho:
+
+javascript
+
+const [x, , z] = numbers;
+console.log(z); // 30
+✅ Object Destructuring
+javascript
+
+const person = { name: "Vinayak", age: 25 };
+const { name, age } = person;
+console.log(name); // Vinayak
+Explanation:
+person ek object hai. Humne usme se name aur age directly nikaal liya.
+
+👉 Variable ka naam change karna ho:
+
+javascript
+
+const { name: fullName } = person;
+console.log(fullName); // Vinayak
+🔹 Destructuring ke Fayde:
+Code short aur clean banata hai.
+
+React mein props ya API se data nikaalne ke liye bahut useful hai.
+
+Bar-bar dot (.) use karne ki zarurat nahi.
