@@ -1,0 +1,113 @@
+🔹 ... (Triple dots) — Rest aur Spread dono mein use hota hai, lekin context alag hota hai.
+✅ 1. Rest Operator
+Jab hum unknown ya baaki values ko collect karte hain.
+
+Mostly function parameters ya destructuring mein use hota hai.
+
+📌 Example (Function mein):
+javascript
+
+function sum(...nums) {
+  return nums.reduce((acc, val) => acc + val, 0);
+}
+console.log(sum(1, 2, 3)); // 6
+Explanation: ...nums saare arguments ko ek array bana deta hai.
+
+📌 Example (Destructuring mein):
+javascript
+
+const [a, ...rest] = [1, 2, 3, 4];
+console.log(rest); // [2, 3, 4]
+✅ 2. Spread Operator
+Jab hum values ko expand karte hain (array ya object ke andar).
+
+Mostly copying, merging, ya function arguments mein use hota hai.
+
+📌 Example (Array Copy):
+javascript
+
+const arr1 = [1, 2];
+const arr2 = [...arr1, 3, 4];
+console.log(arr2); // [1, 2, 3, 4]
+📌 Example (Object Copy):
+javascript
+
+const obj1 = { name: "Vinayak" };
+const obj2 = { ...obj1, age: 25 };
+console.log(obj2); // { name: "Vinayak", age: 25 }
+🔁 Summary:
+Use	Operator	Purpose
+Rest	...	Collect remaining values into array
+Spread	...	Expand elements of array/object
+
+Agar aapko real-world examples (React, API data, etc.) chahiye to poochh sakte ho!
+
+*****************************************************************************************************************************************************************
+
+Great! Yahaan par maine Rest aur Spread Operators ke real-world examples diye hain — simple Hinglish mein, with code:
+
+✅ 1. REST Operator – React Props ke saath
+React component mein, jab hume kuch props alag se chahiye aur baaki sab collect karne ho:
+
+jsx
+
+function Button({ label, ...props }) {
+  return <button {...props}>{label}</button>;
+}
+
+// Use
+<Button label="Click Me" onClick={handleClick} className="btn" />
+Explanation:
+
+label directly le liya.
+
+...props mein baaki sab (onClick, className) aa gaya.
+
+Spread ki help se button ke andar pass kiya.
+
+✅ 2. SPREAD Operator – Array Merge ya Copy
+🔹 Combine product lists from two APIs:
+javascript
+
+const amazonProducts = ["TV", "Mobile"];
+const flipkartProducts = ["Laptop", "Tablet"];
+
+const allProducts = [...amazonProducts, ...flipkartProducts];
+console.log(allProducts); // ['TV', 'Mobile', 'Laptop', 'Tablet']
+✅ 3. REST in Function Parameters (Dynamic Inputs)
+javascript
+
+function logMessages(type, ...messages) {
+  messages.forEach(msg => console.log(`[${type}] ${msg}`));
+}
+
+logMessages("ERROR", "Server down", "Timeout", "Connection failed");
+Output:
+
+csharp
+
+[ERROR] Server down  
+[ERROR] Timeout  
+[ERROR] Connection failed
+✅ 4. SPREAD in State Updates (React – immutability)
+javascript
+
+const [user, setUser] = useState({ name: "Vinayak", age: 25 });
+
+const updateAge = () => {
+  setUser(prev => ({ ...prev, age: 26 }));
+};
+Explanation:
+
+...prev copies existing data.
+
+Only age update hota hai, baaki safe rehta hai.
+
+✅ 5. REST in Object Destructuring
+javascript
+
+const person = { name: "Vinayak", age: 25, country: "India" };
+const { name, ...otherDetails } = person;
+
+console.log(name); // Vinayak
+console.log(otherDetails); // { age: 25, country: 'India' }
