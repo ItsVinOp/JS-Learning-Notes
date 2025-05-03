@@ -1,0 +1,55 @@
+✅ try...catch kya hota hai?
+try...catch ek error-handling structure hai. Iska use hum runtime errors ko handle karne ke liye karte hain — taki program crash na ho.
+
+🔹 Syntax:
+javascript
+
+try {
+  // Code jo error throw kar sakta hai
+} catch (error) {
+  // Error aane par yahaan handle karte hain
+}
+🔹 Example:
+javascript
+
+try {
+  let a = x + 1;  // 'x' is not defined → Error
+} catch (err) {
+  console.log("Error aaya:", err.message);
+}
+🟢 Output:
+
+vbnet
+
+Error aaya: x is not defined
+🔹 With finally (optional):
+javascript
+
+try {
+  // risky code
+} catch (err) {
+  // handle error
+} finally {
+  // yeh block hamesha chalega, chahe error aaye ya nahi
+}
+✅ Use Cases:
+API calls mein error handle karna
+
+File read/write operations
+
+User input validation
+
+Asynchronous code (async/await) ke saath
+
+🔹 Real-world async example:
+javascript
+
+async function fetchData() {
+  try {
+    const res = await fetch("https://api.example.com/data");
+    const data = await res.json();
+    console.log(data);
+  } catch (error) {
+    console.error("API error:", error.message);
+  }
+}
